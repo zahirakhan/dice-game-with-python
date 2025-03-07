@@ -57,7 +57,7 @@ if "game_state" not in st.session_state:
 state = st.session_state.game_state
 
 # Title
-st.markdown("<div class='title'>🎲 2-Player Dice Game 🎲</div>", unsafe_allow_html=True)
+st.markdown("<div class='title'>🎲 Dice Game 🎲</div>", unsafe_allow_html=True)
 
 # Player Name Input
 if not state["game_started"]:
