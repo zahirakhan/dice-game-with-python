@@ -1,10 +1,8 @@
 import streamlit as st
 import random
 
-# Streamlit Page Config
 st.set_page_config(page_title="🎲 Dice Game", page_icon="🎲", layout="centered")
 
-# CSS for Styling
 st.markdown(
     """
     <style>
@@ -29,7 +27,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Dice Images
+
 DICE_ICONS = {
     1: "🎲 1",
     2: "🎲 2",
@@ -39,9 +37,8 @@ DICE_ICONS = {
     6: "🎲 6"
 }
 
-MAX_ROLLS = 10  # Maximum rolls before the game ends
+MAX_ROLLS = 10 
 
-# Game State (Stored in Session)
 if "game_state" not in st.session_state:
     st.session_state.game_state = {
         "player1_name": "",
@@ -69,7 +66,6 @@ if not state["game_started"]:
         state["game_started"] = True
         st.rerun()
 
-# Game Logic
 else:
     st.subheader(f"🎲 {state['player1_name']} vs {state['player2_name']}")
     st.write(f"**Current Turn:** {state['player1_name'] if state['turn'] == 'player1' else state['player2_name']}")
@@ -104,11 +100,10 @@ else:
 
             st.rerun() 
 
-    # Display Scores
     st.write(f"🔹 **{state['player1_name']}'s Score:** {state['player1_score']}")
     st.write(f"🔹 **{state['player2_name']}'s Score:** {state['player2_score']}")
 
-    # Restart Button
+    # Restart
     if st.button("Restart Game 🔄"):
         st.session_state.game_state = {
             "player1_name": "",
